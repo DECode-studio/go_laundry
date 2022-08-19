@@ -76,9 +76,11 @@ class _paymentPageState extends State<paymentPage> {
                                     dateFormater_2(snapshot.data
                                         .data()["orderTime"]
                                         .toDate()),
-                                    dateFormater_2(snapshot.data
-                                        .data()["orderTake"]
-                                        .toDate()),
+                                    snapshot.data.data()["orderTake"] != null
+                                        ? dateFormater_2(snapshot.data
+                                            .data()["orderTake"]
+                                            .toDate())
+                                        : "",
                                     "${snapshot.data.data()["orderMass"]} Kg",
                                     moneyFormater(
                                         snapshot.data.data()["orderPermass"]),
