@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "320818884661",
+    "project_id": "golaundry-353cc",
+    "storage_bucket": "golaundry-353cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320818884661:android:ec0abe694352c7cf9d817c",
+        "android_client_info": {
+          "package_name": "com.build_up_tech.go_laundry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "320818884661-l5fe09v1gr2h8uusmervqb6chuj273p0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.build_up_tech.go_laundry",
+            "certificate_hash": "91c6e5ad9d59fbb02ae8ce439d9531497d23078b"
+          }
+        },
+        {
+          "client_id": "320818884661-3ju961e0vmart7a20jjep13jk0ud3ra4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA08zg8E6To69eQ8AcbNmWuzRkaXGI0rhU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "320818884661-3ju961e0vmart7a20jjep13jk0ud3ra4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
