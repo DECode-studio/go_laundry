@@ -70,22 +70,30 @@ class _paymentPageState extends State<paymentPage> {
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: snapshot.hasData
-                                ? notaPayment(
-                                    snapshot,
-                                    snapshot.data.data()["orderName"],
-                                    dateFormater_2(snapshot.data
-                                        .data()["orderTime"]
-                                        .toDate()),
-                                    snapshot.data.data()["orderTake"] != null
-                                        ? dateFormater_2(snapshot.data
-                                            .data()["orderTake"]
-                                            .toDate())
-                                        : "",
-                                    "${snapshot.data.data()["orderMass"]} Kg",
-                                    moneyFormater(
-                                        snapshot.data.data()["orderPermass"]),
-                                    moneyFormater(
-                                        snapshot.data.data()["orderPrice"]),
+                                ? ListView(
+                                    shrinkWrap: true,
+                                    physics: const BouncingScrollPhysics(),
+                                    children: [
+                                      notaPayment(
+                                        context,
+                                        snapshot.data.data()["orderName"],
+                                        dateFormater_2(snapshot.data
+                                            .data()["orderTime"]
+                                            .toDate()),
+                                        snapshot.data.data()["orderTake"] !=
+                                                null
+                                            ? dateFormater_2(snapshot.data
+                                                .data()["orderTake"]
+                                                .toDate())
+                                            : "",
+                                        "${snapshot.data.data()["orderMass"]} Kg",
+                                        moneyFormater(snapshot.data
+                                            .data()["orderPermass"]),
+                                        moneyFormater(
+                                            snapshot.data.data()["orderPrice"]),
+                                        snapshot.data.data()["orderAddress"],
+                                      ),
+                                    ],
                                   )
                                 : loadPage(200.0),
                           ),

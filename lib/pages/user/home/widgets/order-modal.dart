@@ -18,7 +18,7 @@ void orderModal(
           borderRadius: BorderRadius.circular(30.0),
         ),
         child: SizedBox(
-          height: 355,
+          height: 450,
           child: Stack(
             children: [
               Align(
@@ -57,11 +57,12 @@ class ModalBody extends StatefulWidget {
 class _ModalBodyState extends State<ModalBody> {
   var txt_name = TextEditingController();
   var txt_time = TextEditingController(text: dateFormater(DateTime.now()));
+  var txt_address = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(maxHeight: 350),
+      constraints: const BoxConstraints(maxHeight: 440),
       padding: const EdgeInsets.symmetric(
         horizontal: 20,
         vertical: 40,
@@ -71,8 +72,8 @@ class _ModalBodyState extends State<ModalBody> {
         color: white,
         borderRadius: BorderRadius.circular(30.0),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: ListView(
+        physics: const BouncingScrollPhysics(),
         children: [
           TextFormField(
             controller: txt_name,
@@ -83,7 +84,7 @@ class _ModalBodyState extends State<ModalBody> {
             ),
           ),
           const SizedBox(
-            height: 40,
+            height: 20,
           ),
           TextFormField(
             controller: txt_time,
@@ -94,7 +95,22 @@ class _ModalBodyState extends State<ModalBody> {
               labelText: "Waktu Pemesanan",
             ),
           ),
-          const Spacer(),
+          const SizedBox(
+            height: 20,
+          ),
+          TextFormField(
+            controller: txt_address,
+            style: dataText,
+            keyboardType: TextInputType.multiline,
+            maxLines: 5,
+            minLines: 3,
+            decoration: const InputDecoration(
+              labelText: "Alamat Pemesan",
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
@@ -106,7 +122,9 @@ class _ModalBodyState extends State<ModalBody> {
                 if (txt_name.text.isEmpty) {
                   toast(context, "Nama Pemesan masih kosong");
                 } else {
-                  Order().addOrder(context, txt_name.text).then((value) {
+                  Order()
+                      .addOrder(context, txt_name.text, txt_address.text)
+                      .then((value) {
                     if (value == "Success") {
                       Get().back(context);
                     }
